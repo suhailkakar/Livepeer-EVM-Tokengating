@@ -52,7 +52,7 @@ export default function Create() {
         isToken: TokenAmount ? true : false,
         assetAddress,
         TokenAmount,
-        chain,
+        chain: chain ? Number(chain) : undefined,
       },
     };
     const { data } = await axios.post<CreateSignedPlaybackResponse>(
