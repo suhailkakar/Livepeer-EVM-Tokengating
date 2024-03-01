@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Page, Input, Button, Copy, Nav } from "../../components";
 import { useCreateStream } from "@livepeer/react";
 import { Stream, CreateSignedPlaybackResponse } from "../../types";
+import Broadcast from "./broadcast";
 import axios from "axios";
 import Link from "next/link";
 import toast from "react-hot-toast";
@@ -90,7 +91,7 @@ export default function Create() {
   return (
     <Page>
       <Nav />
-      <div className="mx-12 flex justify-center flex-col items-center">
+      <div className="flex flex-col items-center justify-center mx-12">
         {!address ? (
           <ConnectWallet />
         ) : (
@@ -98,7 +99,7 @@ export default function Create() {
             {stream ? (
               <div className="w-1/2 mt-20">
                 <h3 className="text-2xl font-medium text-white">Stream Info</h3>
-                <p className="text-zinc-400 mt-4">
+                <p className="mt-4 text-zinc-400">
                   Use these details to connect to Livepeer from streaming
                   software like{" "}
                   <Link
@@ -110,39 +111,39 @@ export default function Create() {
                 </p>
                 <div className="flex flex-col mt-2">
                   <div className="flex mt-2">
-                    <p className="font-regular text-zinc-500 w-32 ">
+                    <p className="w-32 font-regular text-zinc-500 ">
                       Stream Name:{" "}
                     </p>
-                    <p className="text-white ml-2">{stream?.name}</p>
+                    <p className="ml-2 text-white">{stream?.name}</p>
                   </div>
 
                   <div className="flex mt-2">
-                    <p className="font-regular text-zinc-500 w-32">
+                    <p className="w-32 font-regular text-zinc-500">
                       Playback Id:{" "}
                     </p>
-                    <p className="text-white ml-2">{stream?.playbackId}</p>
+                    <p className="ml-2 text-white">{stream?.playbackId}</p>
                   </div>
 
                   <div className="flex mt-2">
-                    <p className="font-regular text-zinc-500 w-32">
+                    <p className="w-32 font-regular text-zinc-500">
                       Stream Key:{" "}
                     </p>
-                    <p className="text-white ml-2">{stream?.streamKey}</p>
+                    <p className="ml-2 text-white">{stream?.streamKey}</p>
                   </div>
 
                   <div className="flex mt-2">
-                    <p className="font-regular text-zinc-500 w-32">
+                    <p className="w-32 font-regular text-zinc-500">
                       Ingest URL:{" "}
                     </p>
-                    <p className="text-white ml-2 hover:text-primary hover:cursor-pointer">
+                    <p className="ml-2 text-white hover:text-primary hover:cursor-pointer">
                       {stream?.rtmpIngestUrl}
                     </p>
                   </div>
                 </div>
-                <h3 className="text-2xl font-medium mt-10 text-white">
+                <h3 className="mt-10 text-2xl font-medium text-white">
                   Token Gating Requirements
                 </h3>
-                <div className="flex flex-row mt-4 justify-between">
+                <div className="flex flex-row justify-between mt-4">
                   <div className="w-[100%]">
                     <Select
                       label="Chain and Network"
@@ -153,7 +154,7 @@ export default function Create() {
                   </div>
                 </div>
 
-                <div className="flex flex-row mt-1 justify-between">
+                <div className="flex flex-row justify-between mt-1">
                   <div className="w-[42%]">
                     <Input
                       label="Asset address"
@@ -161,7 +162,7 @@ export default function Create() {
                       onChange={(e) => setAssetAddress(e.target.value)}
                     />
                   </div>
-                  <p className="text-zinc-400 mt-10">and/or</p>
+                  <p className="mt-10 text-zinc-400">and/or</p>
                   <div className="w-[42%]">
                     <Input
                       label={`Amount of native token`}
@@ -189,6 +190,7 @@ export default function Create() {
                   Copy link
                   <Copy text={shareLink} />
                 </Button>
+                <Broadcast/>
               </div>
             ) : (
               <div className="w-1/3 mt-20">

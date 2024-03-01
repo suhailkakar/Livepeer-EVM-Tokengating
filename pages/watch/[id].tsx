@@ -141,14 +141,14 @@ export default function Create() {
       ) : (
         <>
           {isLoading ? (
-            <div className="flex flex-col mt-60 justify-center items-center">
+            <div className="flex flex-col items-center justify-center mt-60">
               <ReactLoading type="spinningBubbles" color="#FAB14F" width={80} />
               <p className="mt-12 text-zinc-400">
                 Authenticating, please wait.
               </p>
             </div>
           ) : (
-            <div className="flex flex-col mt-40 justify-center items-center">
+            <div className="flex flex-col items-center justify-center mt-40">
               {canWatch ? (
                 <div className="w-1/2">
                   <Player
