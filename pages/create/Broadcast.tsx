@@ -32,6 +32,8 @@ export default function Broadcast() {
         });
     }, []);
 
+    // function to start live webtrc stream to livepeer
+
   //returning the page component
   return (
     <Page>
