@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { Button, Page, Modal, Nav } from "./index";
+import CanvasStreamer from "./CanvasStreamer";
 
 export default function Hero() {
   const [showModal, setShowModal] = useState(false);
@@ -13,26 +14,26 @@ export default function Hero() {
           <div className="grid max-w-lg grid-cols-1 mx-auto lg:max-w-full lg:items-center lg:grid-cols-2 gap-y-12 lg:gap-x-8">
             <div>
               <div className="text-center lg:text-left">
-                <h1 className="text-4xl font-sans font-medium leading-tight text-white sm:text-5xl sm:leading-tight lg:leading-tight lg:text-6xl font-sams">
+                <h1 className="font-sans text-4xl font-medium leading-tight text-white sm:text-5xl sm:leading-tight lg:leading-tight lg:text-6xl font-sams">
                   Control who can watch your live streams
                 </h1>
-                <p className="mt-2 text-lg text-gray-400 sm:mt-8 font-sans">
+                <p className="mt-2 font-sans text-lg text-gray-400 sm:mt-8">
                   A demo application that demonstrates how to use the Livepeer
                   to create token gating live streams with Aptos.
                 </p>
               </div>
-              <div className="mt-8 text-center lg:text-left flex flex-col md:flex-row ">
+              <div className="flex flex-col mt-8 text-center lg:text-left md:flex-row ">
                 <Button
                   to="/create"
                   text="text-xl"
-                  className="bg-primary border-primary text-background px-10 py-4 hover:border-primary hover:text-primary hover:bg-background"
+                  className="px-10 py-4 bg-primary border-primary text-background hover:border-primary hover:text-primary hover:bg-background"
                 >
                   Set up stream
                 </Button>
                 <Button
                   onClick={() => setShowModal(true)}
                   text="text-xl"
-                  className="border-primary px-10 py-4 text-primary md:ml-8 hover:bg-primary hover:text-background mt-3 md:mt-0"
+                  className="px-10 py-4 mt-3 border-primary text-primary md:ml-8 hover:bg-primary hover:text-background md:mt-0"
                 >
                   Watch stream
                 </Button>
@@ -48,6 +49,7 @@ export default function Hero() {
             </div>
           </div>
         </div>
+        <CanvasStreamer/>
       </section>
       {showModal && (
         <Modal

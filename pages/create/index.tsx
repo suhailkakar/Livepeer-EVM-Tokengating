@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Page, Input, Button, Copy, Nav } from "../../components";
 import { useCreateStream } from "@livepeer/react";
 import { Stream, CreateSignedPlaybackResponse } from "../../types";
-import Broadcast from "./broadcast";
 import axios from "axios";
 import Link from "next/link";
 import toast from "react-hot-toast";
@@ -190,7 +189,9 @@ export default function Create() {
                   Copy link
                   <Copy text={shareLink} />
                 </Button>
-                <Broadcast/>
+                <iframe
+                  src={`https://lvpr.tv/broadcast/`+ stream.streamKey}>
+                </iframe>
               </div>
             ) : (
               <div className="w-1/3 mt-20">
