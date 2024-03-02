@@ -49,7 +49,6 @@ export default function Hero() {
             </div>
           </div>
         </div>
-        <CanvasStreamer/>
       </section>
       {showModal && (
         <Modal

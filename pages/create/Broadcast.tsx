@@ -133,7 +133,7 @@ if (sdpResponse.ok) {
     <Page>
 
         {/* html canvas element that is populated by users webcam */}
-        <canvas id="canvas" width="640" height="480"></canvas>
+        <canvas id="canvas" width="200" height="300.25"></canvas>
         
         {/* button to start the live stream */}
         <Button

@@ -186,9 +186,6 @@ let address = '0x123'
                   Copy link
                   <Copy text={shareLink} />
                 </Button>
-                <iframe
-                  src={`https://lvpr.tv/broadcast/`+ stream.streamKey}>
-                </iframe>
               </div>
             ) : (
               <div className="w-1/3 mt-20">
@@ -209,8 +206,8 @@ let address = '0x123'
                   >
                     Create Stream
                   </Button>
-                  <Broadcast/>
-                </div>
+                  
+                </div><Broadcast/>
               </div>
             )}
           </>
