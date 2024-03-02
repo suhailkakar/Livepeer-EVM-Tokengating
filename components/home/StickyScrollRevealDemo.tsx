@@ -2,51 +2,52 @@
 import React from "react";
 import { StickyScroll } from "../ui/sticky-scroll-reveal";
 import Image from "next/image";
+import { TracingBeam } from "../ui/tracing-beam";
 
 const content = [
     {
-        title: "Collaborative Editing",
+        title: "Content Moderation",
         description:
-            "Work together in real time with your team, clients, and stakeholders. Collaborate on documents, share ideas, and make decisions quickly. With our platform, you can streamline your workflow and increase productivity.",
+            "Ensure a safe viewing experience in real-time with our AI-driven platform. No Bananas allows streamers and audiences to enjoy content without the worry of inappropriate material. By leveraging advanced machine learning, our tool automatically identifies and censors sensitive content, fostering a more inclusive online space.",
         content: (
-            <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-                Collaborative Editing
+            <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--purple-500),var(--indigo-500))] flex items-center justify-center text-white">
+                Content Moderation
             </div>
         ),
     },
     {
-        title: "Real time changes",
+        title: "Real-Time Censoring",
         description:
-            "See changes as they happen. With our platform, you can track every modification in real time. No more confusion about the latest version of your project. Say goodbye to the chaos of version control and embrace the simplicity of real-time updates.",
+            "Watch as inappropriate content is censored instantly. Our integration of TensorFlow with Livepeer ensures that all live streams are monitored and moderated in real-time. This seamless process guarantees that all viewers enjoy a positive and safe streaming experience, free from unexpected surprises.",
         content: (
-            <div className="h-full w-full  flex items-center justify-center text-white">
+            <div className="h-full w-full flex items-center justify-center text-white">
                 <Image
-                    src="/linear.webp"
+                    src="/real-time-censoring.webp"
                     width={300}
                     height={300}
                     className="h-full w-full object-cover"
-                    alt="linear board demo"
+                    alt="Real-time censoring demonstration"
                 />
             </div>
         ),
     },
     {
-        title: "Version control",
+        title: "Customizable Filters",
         description:
-            "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
+            "Gain control over what gets shown on your stream. No Bananas offers customizable filter settings, allowing streamers to define what types of content need to be censored according to their audience's preferences and community guidelines. Tailor the viewing experience to fit your brand and viewer expectations effortlessly.",
         content: (
-            <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white">
-                Version control
+            <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--blue-500),var(--light-blue-500))] flex items-center justify-center text-white">
+                Customizable Filters
             </div>
         ),
     },
     {
-        title: "Running out of content",
+        title: "Community Trust",
         description:
-            "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
+            "Build and maintain trust with your audience by providing a consistently safe viewing environment. No Bananas helps protect your brand from the risks associated with live streaming, ensuring that your content remains appropriate for all viewers. Strengthen your community by prioritizing their safety and comfort.",
         content: (
-            <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-                Running out of content
+            <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--green-500),var(--lime-500))] flex items-center justify-center text-white">
+                Community Trust
             </div>
         ),
     },

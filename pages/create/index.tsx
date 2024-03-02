@@ -5,8 +5,6 @@ import { Stream, CreateSignedPlaybackResponse } from "../../types";
 import axios from "axios";
 import Link from "next/link";
 import toast from "react-hot-toast";
-import ConnectWallet from "../../components/ConnectWallet";
-import { useAccount, chain } from "wagmi";
 import Select from "../../components/shared/Select";
 import Broadcast from "../create/Broadcast";
 
@@ -26,8 +24,8 @@ export default function Create() {
   const [TokenAmount, setTokenAmount] = useState<string | null>(null);
   const [shareLink, setShareLink] = useState<string | null>(null);
   const [chain, setChain] = useState<string | null>("");
-  const { address } = useAccount();
 
+let address = '0x123'
   const {
     mutate: createStream,
     data: stream,
@@ -47,7 +45,7 @@ export default function Create() {
       streamId: stream?.id,
       streamName: stream?.name,
       createdAt: new Date(),
-      author: address,
+      author: '0x123',
       requirements: {
         isAssetAddress: assetAddress ? true : false,
         isToken: TokenAmount ? true : false,
@@ -92,9 +90,7 @@ export default function Create() {
     <Page>
       <Nav />
       <div className="flex flex-col items-center justify-center mx-12">
-        {!address ? (
-          <ConnectWallet />
-        ) : (
+  
           <>
             {stream ? (
               <div className="w-1/2 mt-20">
@@ -190,9 +186,6 @@ export default function Create() {
                   Copy link
                   <Copy text={shareLink} />
                 </Button>
-                <iframe
-                  src={`https://lvpr.tv/broadcast/`+ stream.streamKey}>
-                </iframe>
               </div>
             ) : (
               <div className="w-1/3 mt-20">
@@ -213,12 +206,12 @@ export default function Create() {
                   >
                     Create Stream
                   </Button>
-                  <Broadcast/>
-                </div>
+                  
+                </div><Broadcast/>
               </div>
             )}
           </>
-        )}
+
       </div>
     </Page>
   );

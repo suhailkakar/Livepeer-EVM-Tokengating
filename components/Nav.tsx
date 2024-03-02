@@ -71,8 +71,8 @@ const Navbar = () => {
 
   return (
     <div className='fixed w-full top-0 z-50 sm:px-6 lg:px-8'>
-      <div className='w-full py-10 h-16 flex items-center'>
-        <div className={`flex items-center w-full justify-between max-w-7xl md:mx-auto md:px-2 pr-2 mr-6 md:mr-aut transition-all duration-500 ${hasScrolled ? 'bg-[#07091A]' : 'bg-transparent'} rounded-full`}>
+      <div className='w-full h-20 bg-white flex items-center'>
+        <div className={`flex items-center w-full justify-between max-w-7xl md:mx-auto md:px-2 pr-2 mr-6 md:mr-aut transition-all duration-500 ${hasScrolled ? 'bg-white' : 'bg-transparent'} rounded-full`}>
           <Link
             href={'/'}
             className='cursor-pointer transition-all duration-300 flex items-center gap-1.5'
