@@ -21,25 +21,25 @@ export default function Nav() {
           <div className="hidden lg:flex lg:ml-10 xl:ml-16 lg:items-center lg:justify-center lg:space-x-8 xl:space-x-16">
             <Link
               href="/"
-              className="text-base font-regular text-white transition-all duration-200 rounded focus:outline-none font-sans hover:text-opacity-50 "
+              className="text-base font-regular text-black transition-all duration-200 rounded focus:outline-none font-sans hover:text-opacity-50 "
             >
               Home
             </Link>
             <Link
               href="https://livepeerjs.org"
-              className="text-base font-regular text-white transition-all duration-200 rounded focus:outline-none font-sans hover:text-opacity-50 "
+              className="text-base font-regular text-black transition-all duration-200 rounded focus:outline-none font-sans hover:text-opacity-50 "
             >
               Livepeer.js
             </Link>
             <Link
               href="https://livepeer.studio"
-              className="text-base font-regular text-white transition-all duration-200 rounded focus:outline-none font-sans hover:text-opacity-50 "
+              className="text-base font-regular text-black transition-all duration-200 rounded focus:outline-none font-sans hover:text-opacity-50 "
             >
               Livepeer Studio
             </Link>
             <Link
               href="https://github.com/suhailkakar/Livepeer-EVM-Tokengating"
-              className="text-base font-regular text-white transition-all duration-200 rounded focus:outline-none font-sans hover:text-opacity-50 "
+              className="text-base font-regular text-black transition-all duration-200 rounded focus:outline-none font-sans hover:text-opacity-50 "
             >
               GitHub Repo
             </Link>
