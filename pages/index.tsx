@@ -30,7 +30,7 @@ export default function Home() {
         <meta name="twitter:image" content="https://www.nobananas.com/path/to/twitter-image.jpg" />
       </Head>
       <Hero />
-      <StickyScrollRevealDemo />
+      {/* <StickyScrollRevealDemo /> */}
       <div className="pl-4 md:px-0">
         <Section />
       </div>

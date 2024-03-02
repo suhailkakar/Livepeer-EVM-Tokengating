@@ -1,11 +1,12 @@
 import React from 'react'
 import { TracingBeam } from '../ui/tracing-beam'
 import { MeteorsDemo } from './MeteorsDemo'
+import { BackgroundGradientDemo } from './BackgroundGradientDemo'
 
 const Section = () => {
     return (
         <TracingBeam className="px-12 md:px-6 w-full">
-            <div className='my-16 space-y-8'>
+            <div className='my-16 space-y-12'>
                 <div className='space-y-2'>
                     <h3 className='text-3xl'>
                         Peeling the Tech
@@ -15,8 +16,9 @@ const Section = () => {
                     </p>
                 </div>
                 <div className='flex flex-col md:flex-row items-center justify-center md:justify-start gap-4 md:gap-8'>
-                    <MeteorsDemo title='Livepper' description='Leveraging robust streaming infrastructure for seamless content delivery, while maintaining decentralization.' />
-                    <MeteorsDemo title='TensorFlow' description='Utilizing advanced AI to intelligently moderate content in real-time, ensuring that only appropriate material is broadcasted' />
+                    <BackgroundGradientDemo title='Livepper' description='Leveraging robust streaming infrastructure for seamless content delivery, while maintaining decentralization.' image='/assets/livepeer.svg' />
+                    <BackgroundGradientDemo title='Tensor Flow' description='Utilizing advanced AI to intelligently moderate content in real-time, ensuring no bananas are broadcasted' image='/assets/tensorflow.svg' />
+
                 </div>
             </div>
             <div className='space-y-8'>
@@ -29,8 +31,8 @@ const Section = () => {
                     </p>
                 </div>
                 <div className='grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8'>
-                    <MeteorsDemo title='Real-Time Moderation' description='Instant detection and moderation of bananas, keeping streams family-friendly' />
-                    <MeteorsDemo title='Customization' description='Tailor moderation levels to fit your needs, from strict to more relaxed settings' />
+                    <MeteorsDemo title='Real-Time Moderation' description='Instant banana 🍌 detection and censorship, keeping streams PG friendly' />
+                    <MeteorsDemo title='Decentralized live streaming' description='Tailor moderation levels to fit your needs, from strict to more relaxed settings' />
                     <MeteorsDemo title='Community Trust' description='Build and maintain trust within your viewer base by providing consistently safe viewing experiences' />
                 </div>
             </div>
