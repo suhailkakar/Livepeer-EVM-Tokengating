@@ -3,6 +3,8 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image'
 import Link from 'next/link'
 import { MovingBorderDemo } from './home/MovingBorderDemo';
+import { ConnectKitButton } from "connectkit";
+
 
 const DropdownMenu = () => {
   return (
@@ -160,7 +162,9 @@ const Navbar = () => {
             </ul>
           </div>
           <Link href='/create' className="">
-            <MovingBorderDemo />
+            {/* <MovingBorderDemo /> */}
+            {/* <w3m-button /> */}
+            <ConnectKitButton />
           </Link>
         </div>
       </div>

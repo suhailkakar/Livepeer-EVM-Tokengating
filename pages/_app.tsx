@@ -8,6 +8,7 @@ import {
   studioProvider,
 } from "@livepeer/react";
 import { Toaster } from "react-hot-toast";
+import { Web3Provider } from "../utils/Web3Provider";
 
 
 
@@ -17,13 +18,17 @@ const LivepeerClient = createReactClient({
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <LivepeerConfig client={LivepeerClient}>
 
+
+  return (
+
+    <LivepeerConfig client={LivepeerClient}>
+      <Web3Provider>
         <Component {...pageProps} />
         <Toaster />
+      </Web3Provider>
+    </LivepeerConfig >
 
-    </LivepeerConfig>
   );
 }
 export default MyApp;
