@@ -1,5 +1,4 @@
 import type { AppProps } from "next/app";
-import { providers } from "ethers";
 import { WagmiConfig, createClient, configureChains, chain } from "wagmi";
 import { publicProvider } from "wagmi/providers/public";
 import "../styles/globals.css";

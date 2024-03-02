@@ -7,7 +7,7 @@ import { Stream, StreamRequirements } from "../../types/index";
 import ReactLoading from "react-loading";
 import ConnectWallet from "../../components/ConnectWallet";
 import { useAccount, useBalance, useNetwork, useSwitchNetwork } from "wagmi";
-import { ethers } from "ethers";
+
 
 export default function Create() {
   const { address } = useAccount();
