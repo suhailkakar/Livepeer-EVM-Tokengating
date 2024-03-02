@@ -1,50 +1,56 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { Button, Page, Modal, Nav } from "./index";
-import CanvasStreamer from "./CanvasStreamer";
 
 export default function Hero() {
   const [showModal, setShowModal] = useState(false);
   const [onInputChange, setOnInputChange] = useState("");
   return (
-    <Page>
+    <>
       <Nav />
-      <section className="relative py-12 sm:py-16 lg:py-20 lg:pb-36">
-        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+      <section className="relative py-24 sm:py-16 lg:py-44 lg:pb-36 bg-white md:max-w-6xl md:mx-auto md:px-0">
+        <div className="w-full mx-auto sm:px-6 lg:px-0">
           <div className="grid max-w-lg grid-cols-1 mx-auto lg:max-w-full lg:items-center lg:grid-cols-2 gap-y-12 lg:gap-x-8">
             <div>
               <div className="text-center lg:text-left">
-                <h1 className="font-sans text-4xl font-medium leading-tight text-white sm:text-5xl sm:leading-tight lg:leading-tight lg:text-6xl font-sams">
-                  Control who can watch your live streams
+                <h1 className="text-4xl font-sans font-medium leading-tight text-black sm:text-5xl sm:leading-tight lg:leading-tight lg:text-6xl font-sams">
+                  Bringing back fun, safe, livestreams with{' '}
+                  <span
+                    style={{ color: "#FFA800" }}
+                  >
+                    N
+                    <span className="text-5xl">
+                      🚫{' '}
+                    </span>
+                    Bananas 🍌
+                  </span>
                 </h1>
-                <p className="mt-2 font-sans text-lg text-gray-400 sm:mt-8">
-                  A demo application that demonstrates how to use the Livepeer
-                  to create token gating live streams with Aptos.
+                <p className="hidden md:block mt-2 md:text-lg text-gray-400 sm:mt-8 font-sans">
+                  No Bananas brings groundbreaking moderation to ensure live streams are safe and inclusive for everyone.
                 </p>
               </div>
-              <div className="flex flex-col mt-8 text-center lg:text-left md:flex-row ">
+              <div className="mt-4 md:mt-8 text-center lg:text-left flex gap-2">
                 <Button
                   to="/create"
-                  text="text-xl"
-                  className="px-10 py-4 bg-primary border-primary text-background hover:border-primary hover:text-primary hover:bg-background"
+                  className="bg-primary border-primary text-background md:px-10 py-4 hover:border-primary hover:text-primary hover:bg-background w-full"
                 >
-                  Set up stream
+                  Discover How
                 </Button>
                 <Button
                   onClick={() => setShowModal(true)}
-                  text="text-xl"
-                  className="px-10 py-4 mt-3 border-primary text-primary md:ml-8 hover:bg-primary hover:text-background md:mt-0"
+                  className="border-primary md:px-10 py-4 text-primary md:ml-8 hover:bg-primary hover:text-background w-full"
                 >
                   Watch stream
                 </Button>
               </div>
             </div>
-            <div className="w-full h-100 relative pb-[100%] md:ml-8">
+            <div className="">
               <Image
-                className="hero-image"
-                src="/assets/hero.png"
-                layout="fill"
-                alt="Aptos Logo"
+                className=""
+                src="/assets/BANANA2.gif"
+                width={2000}
+                height={2000}
+                alt="banana"
               />
             </div>
           </div>
@@ -59,6 +65,6 @@ export default function Hero() {
           }}
         />
       )}
-    </Page>
+    </>
   );
 }
