@@ -131,8 +131,7 @@ if (sdpResponse.ok) {
   //returning the page component
   return (
     <Page>
-      <Nav />
-      <div>
+
         {/* html canvas element that is populated by users webcam */}
         <canvas id="canvas" width="640" height="480"></canvas>
         
@@ -144,7 +143,7 @@ if (sdpResponse.ok) {
                   >
                     Start Stream!
      </Button>
-      </div>
+
     </Page>
   );
 }
