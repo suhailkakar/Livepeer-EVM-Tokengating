@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image'
 import Link from 'next/link'
+import { MovingBorderDemo } from './home/MovingBorderDemo';
 
 const DropdownMenu = () => {
   return (
@@ -125,11 +126,7 @@ const Navbar = () => {
                       onClick={() => scrollToSection('faq')}
                       className="cursor-pointer transition-all duration-300 menu-item-hover hover:text-black">FAQ</li>
                     {/* inverted dapp button */}
-                    <Link href='/nodes' className="px-12 py-2 bg-white bg-opacity-5 hover:bg-opacity-10 rounded-full border-2 border-white/10 justify-start items-center gap-1"
-                      style={{ background: 'linear-gradient(94deg, #E52200 0%, #FFA800 100%)', boxShadow: '5px 5px 40px rgba(142, 252, 113, 0.3)', }}
-                    >
-                      <span className="text-center text-black text-base font-bold font-['TT Hoves Pro Expanded'] leading-snug">DAPP</span>
-                    </Link>
+                    <MovingBorderDemo />
                   </ul>
                 </motion.div>
               )}
@@ -162,11 +159,7 @@ const Navbar = () => {
                 className="cursor-pointer transition-all duration-300 menu-item-hover hover:text-black">FAQ</li>
             </ul>
           </div>
-          <Link href='/nodes' className="hidden md:inline-flex h-12 px-12 py-4 rounded-full  justify-start items-center gap-1 hover:shadow-md hover:shadow-[#80FBB4]/10 transition-all duration-300 hover:bg-blue-400/5"
-            style={{ background: 'linear-gradient(94deg, orange 30%, yellow 100%)', boxShadow: '5px 5px 40px rgba(142, 252, 113, 0.3)', }}
-          >
-            <span className="text-center text-black text-base font-bold font-['TT Hoves Pro Expanded'] leading-snug">DAPP</span>
-          </Link>
+          <MovingBorderDemo />
         </div>
       </div>
       <div className='bg-white/5 max-w-5xl mx-auto' style={{
