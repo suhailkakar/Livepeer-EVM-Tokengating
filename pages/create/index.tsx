@@ -7,6 +7,7 @@ import Link from "next/link";
 import toast from "react-hot-toast";
 import Select from "../../components/shared/Select";
 import Broadcast from "../create/Broadcast";
+import Banner from "../banner";
 
 const options = [
   { value: "1", label: "Ethereum" },
@@ -89,7 +90,7 @@ export default function Create() {
   return (
     <>
       <Nav />
-      <div className="flex flex-col items-center justify-center mx-12 h-screen">
+      <div className="flex flex-col items-center justify-center mx-12">
         <>
           {stream ? (
             <div className="w-1/2 mt-20">
@@ -136,25 +137,28 @@ export default function Create() {
               </Button>
             </div>
           ) : (
-            <div className="w-1/3 mt-20">
-              <Input
-                label="Stream Name"
-                placeholder="My first stream"
-                onChange={(e) => setStreamName(e.target.value)}
-              />
-              <div className="flex justify-end">
-                <Button
-                  className={`bg-primary border-primary text-background px-4 py-2.5 ${status === "loading" || !address || !streamName
-                    ? "cursor-not-allowed opacity-20"
-                    : ""
-                    }`}
-                  text="text-sm"
-                  onClick={() => createStream?.()}
-                >
-                  Start Streaming
-                </Button>
+            <>
+              <Banner />
+              <div className="w-1/3 mt-44">
+                <Input
+                  label="Stream Name"
+                  placeholder="My first stream"
+                  onChange={(e) => setStreamName(e.target.value)}
+                />
+                <div className="flex justify-end">
+                  <Button
+                    className={`bg-primary border-primary text-background px-4 py-2.5 ${status === "loading" || !address || !streamName
+                      ? "cursor-not-allowed opacity-20"
+                      : ""
+                      }`}
+                    text="text-sm"
+                    onClick={() => createStream?.()}
+                  >
+                    Start Streaming
+                  </Button>
+                </div>
               </div>
-            </div>
+            </>
           )}
         </>
 

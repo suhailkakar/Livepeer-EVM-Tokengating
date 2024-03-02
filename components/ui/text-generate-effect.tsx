@@ -27,7 +27,7 @@ export const TextGenerateEffect = ({
 
     const renderWords = () => {
         return (
-            <motion.div ref={scope} className="flex flex-col md:flex-row items-center justify-center min-h-screen w-screen gap-2 md:gap-4">
+            <motion.div ref={scope} className="gap-2 md:gap-4">
                 {wordsArray.map((word, idx) => {
                     return (
                         <motion.span
