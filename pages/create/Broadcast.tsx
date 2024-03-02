@@ -133,8 +133,7 @@ if (sdpResponse.ok) {
     <Page>
 
         {/* html canvas element that is populated by users webcam */}
-        <canvas id="canvas" width="200" height="300.25"></canvas>
-        
+        <canvas id="canvas" width="1920" height="720"></canvas>
         {/* button to start the live stream */}
         <Button
                     className={`bg-primary border-primary text-background px-4 py-2.5`}
