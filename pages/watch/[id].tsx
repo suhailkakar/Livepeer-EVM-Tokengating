@@ -5,17 +5,10 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import { Stream, StreamRequirements } from "../../types/index";
 import ReactLoading from "react-loading";
-import ConnectWallet from "../../components/ConnectWallet";
-import { useAccount, useBalance, useNetwork, useSwitchNetwork } from "wagmi";
+
 
 
 export default function Create() {
-  const { address } = useAccount();
-  const { chain } = useNetwork();
-  const { switchNetwork } = useSwitchNetwork();
-  const { data: balance } = useBalance({
-    address: address,
-  });
 
   const [stream, setStream] = useState<Stream>();
   const [canWatch, setCanWatch] = useState(false);
@@ -28,7 +21,7 @@ export default function Create() {
   const createJwt = async () => {
     const body = {
       playbackId: id,
-      secret: address,
+      secret: '0x123',
     };
     console.log(body);
     const { data } = await axios.post("/api/jwt/create", body);
@@ -41,57 +34,13 @@ export default function Create() {
     const { data } = await axios.get<Stream>(`/api/stream/get?id=${id}`);
     if (data) {
       setStream(data);
-      const { requirements, playbackId, streamName } = data;
-      if (requirements.chain == chain?.id) {
-        checkRequirements(requirements);
-      } else {
-        switchNetwork?.(Number(requirements.chain));
-      }
+
     } else {
       alert("Stream not found");
     }
   };
 
-  const checkRequirements = async (requirements: StreamRequirements) => {
-    const { isToken, isAssetAddress, TokenAmount, assetAddress } = requirements;
-    if (isToken) {
-      if (Number(TokenAmount) > Number(balance?.formatted)) {
-        play(false);
-      } else {
-        createJwt();
-      }
-    } else if (isAssetAddress) {
-      const data = await getNFTs(address, assetAddress);
-      if (data.length > 0) {
-        createJwt();
-      } else {
-        play(false);
-      }
-    } else if (isToken && isAssetAddress) {
-      const data = await getNFTs(address, assetAddress);
-      if (Number(TokenAmount) > Number(balance?.formatted) && data.length > 0) {
-        play(false);
-      } else {
-        createJwt();
-      }
-    }
 
-    return;
-  };
-
-  const getNFTs = async (
-    address: `0x${string}` | undefined,
-    assetAddress: string | null
-  ) => {
-    const { data } = await axios.get(
-      `https://api.opensea.io/api/v1/assets?format=json&owner=${address}`
-    );
-    const NFTs = data?.assets.filter((asset: any) => {
-      return asset.asset_contract.address == assetAddress;
-    });
-
-    return NFTs;
-  };
 
   const play = (canPlay: boolean) => {
     if (canPlay) {
@@ -103,12 +52,6 @@ export default function Create() {
     }
   };
 
-  useEffect(() => {
-    setIsLoading(true);
-    if (address) {
-      getStream();
-    }
-  }, [address]);
 
   const TokenFromChainId = (chainId: number) => {
     switch (chainId) {
@@ -134,11 +77,6 @@ export default function Create() {
   return (
     <Page>
       <Nav />
-      {!address ? (
-        <>
-          <ConnectWallet />
-        </>
-      ) : (
         <>
           {isLoading ? (
             <div className="flex flex-col items-center justify-center mt-60">
@@ -182,7 +120,6 @@ export default function Create() {
             </div>
           )}
         </>
-      )}
     </Page>
   );
 }

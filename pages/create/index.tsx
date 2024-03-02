@@ -5,8 +5,6 @@ import { Stream, CreateSignedPlaybackResponse } from "../../types";
 import axios from "axios";
 import Link from "next/link";
 import toast from "react-hot-toast";
-import ConnectWallet from "../../components/ConnectWallet";
-import { useAccount } from "wagmi";
 import Select from "../../components/shared/Select";
 import Broadcast from "../create/Broadcast";
 
@@ -92,9 +90,7 @@ let address = '0x123'
     <Page>
       <Nav />
       <div className="flex flex-col items-center justify-center mx-12">
-        {!address ? (
-          <ConnectWallet />
-        ) : (
+  
           <>
             {stream ? (
               <div className="w-1/2 mt-20">
@@ -218,7 +214,7 @@ let address = '0x123'
               </div>
             )}
           </>
-        )}
+
       </div>
     </Page>
   );

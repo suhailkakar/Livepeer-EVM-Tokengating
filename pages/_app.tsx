@@ -1,16 +1,12 @@
 import type { AppProps } from "next/app";
 // ignore ts error
 // // eslint-disable-next-line
-import { publicProvider } from "wagmi/providers/public";
 import "../styles/globals.css";
 import {
   LivepeerConfig,
   createReactClient,
   studioProvider,
 } from "@livepeer/react";
-import { CoinbaseWalletConnector } from "wagmi/connectors/coinbaseWallet";
-import { MetaMaskConnector } from "wagmi/connectors/metaMask";
-import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
 import { Toaster } from "react-hot-toast";
 
 
