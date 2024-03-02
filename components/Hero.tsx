@@ -8,8 +8,8 @@ export default function Hero() {
   return (
     <>
       <Nav />
-      <section className="relative py-12 sm:py-16 lg:py-44 lg:pb-36 bg-white md:max-w-7xl md:mx-auto">
-        <div className="px-4 mx-auto  sm:px-6 lg:px-8">
+      <section className="relative py-24 sm:py-16 lg:py-44 lg:pb-36 bg-white md:max-w-6xl md:mx-auto md:px-0">
+        <div className="w-full mx-auto sm:px-6 lg:px-0">
           <div className="grid max-w-lg grid-cols-1 mx-auto lg:max-w-full lg:items-center lg:grid-cols-2 gap-y-12 lg:gap-x-8">
             <div>
               <div className="text-center lg:text-left">
@@ -25,34 +25,34 @@ export default function Hero() {
                     Bananas 🍌
                   </span>
                 </h1>
-                <p className="mt-2 text-lg text-gray-400 sm:mt-8 font-sans">
+                <p className="hidden md:block mt-2 md:text-lg text-gray-400 sm:mt-8 font-sans">
                   No Bananas brings groundbreaking moderation to ensure live streams are safe and inclusive for everyone.
                 </p>
               </div>
-              <div className="mt-8 text-center lg:text-left flex flex-col md:flex-row ">
+              <div className="mt-4 md:mt-8 text-center lg:text-left flex gap-2">
                 <Button
                   to="/create"
-                  text="text-xl"
-                  className="bg-primary border-primary text-background px-10 py-4 hover:border-primary hover:text-primary hover:bg-background"
+                  className="bg-primary border-primary text-background md:px-10 py-4 hover:border-primary hover:text-primary hover:bg-background w-full"
                 >
                   Discover How
                 </Button>
                 <Button
                   onClick={() => setShowModal(true)}
-                  text="text-xl"
-                  className="border-primary px-10 py-4 text-primary md:ml-8 hover:bg-primary hover:text-background mt-3 md:mt-0"
+                  className="border-primary md:px-10 py-4 text-primary md:ml-8 hover:bg-primary hover:text-background w-full"
                 >
                   Watch stream
                 </Button>
               </div>
             </div>
-            <Image
-              className=""
-              src="/assets/BANANA2.gif"
-              width={2000}
-              height={2000}
-              alt="banana"
-            />
+            <div className="">
+              <Image
+                className=""
+                src="/assets/BANANA2.gif"
+                width={2000}
+                height={2000}
+                alt="banana"
+              />
+            </div>
           </div>
         </div>
       </section>

@@ -2,6 +2,8 @@ import Head from "next/head";
 import { Hero } from "../components";
 import { StickyScrollRevealDemo } from "../components/home/StickyScrollRevealDemo";
 import { TracingBeam } from "../components/ui/tracing-beam";
+import Section from "../components/home/Section";
+import Start from "../components/home/Start";
 
 export default function Home() {
   return (
@@ -28,8 +30,11 @@ export default function Home() {
         <meta name="twitter:image" content="https://www.nobananas.com/path/to/twitter-image.jpg" />
       </Head>
       <Hero />
-
       <StickyScrollRevealDemo />
+      <div className="pl-4 md:px-0">
+        <Section />
+      </div>
+      <Start />
     </>
   )
 }

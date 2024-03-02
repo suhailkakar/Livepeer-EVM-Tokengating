@@ -70,14 +70,14 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className='fixed w-full top-0 z-50 sm:px-6 lg:px-8'>
-      <div className='w-full h-20 bg-white flex items-center'>
-        <div className={`flex items-center w-full justify-between max-w-7xl md:mx-auto md:px-2 pr-2 mr-6 md:mr-aut transition-all duration-500 ${hasScrolled ? 'bg-white' : 'bg-transparent'} rounded-full`}>
+    <div className='fixed w-full top-0 z-50 bg-white px-4 lg:px-8'>
+      <div className='w-full h-20 flex items-center'>
+        <div className={`flex items-center w-full justify-between max-w-6xl md:mx-auto md:px-2  ,md:mr-6 md:mr-aut transition-all duration-500 ${hasScrolled ? 'bg-white' : 'bg-transparent'} rounded-full`}>
           <Link
             href={'/'}
             className='cursor-pointer transition-all duration-300 flex items-center gap-1.5'
           >
-            <h1 className="text-black text-2xl"
+            <h1 className="text-black text-lg md:text-2xl"
               style={{ background: 'linear-gradient(94deg, #E52200 0%, #FFA800 100%)', color: 'transparent', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', }}
             >N🚫 Bananas {' '}</h1>
             <span className='text-3xl'>🍌</span>
