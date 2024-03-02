@@ -41,10 +41,10 @@ export default function Broadcast() {
     const stream = canvas.captureStream(30);
     const mediaRecorder = new MediaRecorder(stream);
 
-const redirectUrl = `https://atl-prod-catalyst-0.lp-playback.studio:443/webrtc/b027-20qx-yap8-7ael`;
+const redirectUrl = `https://mia-prod-catalyst-0.lp-playback.studio:443/webrtc/c84c-6dgz-iij5-mt1u`;
 // we use the host from the redirect URL in the ICE server configuration
 const host = new URL(redirectUrl).host;
-
+console.log("host",host);
 const iceServers = [
   {
     urls: `stun:${host}`,
@@ -64,7 +64,21 @@ const peerConnection = new RTCPeerConnection({ iceServers });
 
 const newVideoTrack = mediaStream?.getVideoTracks?.()?.[0] ?? null;
 const newAudioTrack = mediaStream?.getAudioTracks?.()?.[0] ?? null;
-
+let videoTransceiver:any;
+let audioTransceiver:any;
+if (newVideoTrack) {
+    videoTransceiver =
+      peerConnection?.addTransceiver(newVideoTrack, {
+        direction: "sendonly",
+      }) ?? null;
+  }
+  
+  if (newAudioTrack) {
+    audioTransceiver =
+      peerConnection?.addTransceiver(newAudioTrack, {
+        direction: "sendonly",
+      }) ?? null;
+  }
 
 /**
  * https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection/createOffer
@@ -74,7 +88,7 @@ const offer = await peerConnection.createOffer();
 /** https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection/setLocalDescription */
 await peerConnection.setLocalDescription(offer);
 console.log("establishing connection", offer);
-let ofr;
+let ofr:any;
 /** Wait for ICE gathering to complete */
 ofr = await new Promise((resolve) => {
   /** Wait at most five seconds for ICE gathering. */
@@ -100,21 +114,11 @@ if (!ofr) {
 const sdpResponse = await fetch(redirectUrl, {
     method: "POST",
     headers: {
-        "accept": "*/*",
-        "accept-language": "en-US,en;q=0.9,es;q=0.8",
-        "cache-control": "no-cache",
-        "content-type": "application/sdp",
-        "pragma": "no-cache",
-        "sec-ch-ua": "\"Not A(Brand\";v=\"99\", \"Google Chrome\";v=\"121\", \"Chromium\";v=\"121\"",
-        "sec-ch-ua-mobile": "?0",
-        "sec-ch-ua-platform": "\"macOS\"",
-        "sec-fetch-dest": "empty",
-        "sec-fetch-site": "cross-site",
-        "Referrer-Policy": "no-referrer"
+        "content-type": "application/sdp"
     },
     //ignore ts error
     // eslint-disable-next-line 
-    body: (ofr as { sdp: string }).sdp,
+    body: ofr.sdp,
 });
 console.log("sdp",sdpResponse);
 if (sdpResponse.ok) {

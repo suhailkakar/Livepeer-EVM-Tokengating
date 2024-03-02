@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 import ConnectWallet from "../../components/ConnectWallet";
 import { useAccount, chain } from "wagmi";
 import Select from "../../components/shared/Select";
+import Broadcast from "../create/Broadcast";
 
 const options = [
   { value: "1", label: "Ethereum" },
@@ -212,6 +213,7 @@ export default function Create() {
                   >
                     Create Stream
                   </Button>
+                  <Broadcast/>
                 </div>
               </div>
             )}

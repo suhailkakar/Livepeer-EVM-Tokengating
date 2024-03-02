@@ -19,7 +19,7 @@ app.post('/stream', (req, res) => {
     '-ac', '2',
     '-ar', '44100',
     '-f', 'flv',
-    'rtmp://rtmp.livepeer.com:2935?streamid=b027-20qx-yap8-7ael'
+    'rtmp://rtmp.livepeer.com/live'
   ]);
 
   req.pipe(ffmpeg.stdin);
